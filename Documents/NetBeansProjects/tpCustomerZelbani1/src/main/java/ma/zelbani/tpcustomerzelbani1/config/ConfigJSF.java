@@ -9,10 +9,7 @@ import jakarta.faces.annotation.FacesConfig;
 
 @ApplicationScoped
 @FacesConfig
-/**
- *
- * @author admin
- */
+
 public class ConfigJSF {
     
 }

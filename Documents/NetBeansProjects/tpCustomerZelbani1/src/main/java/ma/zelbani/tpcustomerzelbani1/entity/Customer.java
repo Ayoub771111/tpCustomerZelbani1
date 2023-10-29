@@ -15,10 +15,7 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 
-/**
- *
- * @author admin
- */
+
 @Entity
 @Table(name = "customer")
 @NamedQueries({

@@ -12,12 +12,8 @@ import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import java.util.List;
 
-@RequestScoped
-/**
- *
- * @author admin
- */
 
+@RequestScoped
 public class CustomerManager {
     
     @PersistenceContext(unitName = "customerPU")
@@ -36,5 +32,9 @@ public class CustomerManager {
     @Transactional
      public void persist(Customer customer) {
        em.persist(customer);
+    }
+    
+    public Customer findById(int idCustomer) {  
+        return em.find(Customer.class, idCustomer);  
     }
 }

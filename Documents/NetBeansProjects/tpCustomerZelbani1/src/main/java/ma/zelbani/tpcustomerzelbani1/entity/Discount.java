@@ -17,10 +17,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 
-/**
- *
- * @author admin
- */
+
 @Entity
 @Table(name = "discount")
 @NamedQueries({

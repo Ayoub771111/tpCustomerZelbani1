@@ -14,8 +14,8 @@
     <h:body>
         <h:outputText value="Aucun client avec l'id #{customerDetailsBean.idCustomer} !" rendered='#{customerDetailsBean.customer == null}'/>
         <h:form rendered='#{customerDetailsBean.customer != null}'>
-           <h1><h:outputText value="Create/Edit"/></h1>
-           <h:panelGrid columns="2">
+            <h1><h:outputText value="Create/Edit"/></h1>
+            <h:panelGrid columns="2">
                 <h:outputLabel value="CustomerId:" for="customerId" />
                 <h:inputText id="customerId" 
                              value="#{customerDetailsBean.customer.customerId}" 
@@ -59,19 +59,19 @@
                              title="CreditLimit" />
                 <h:outputLabel value="Discount:" for="discount" />
                 <h:selectOneMenu 
-                  id="discount" value="#{customerDetailsBean.customer.discount}" 
-                  title="Discount" required="true" requiredMessage="The Discount field is required." converter="discountConverter">
-                  <f:selectItems value="#{customerDetailsBean.discounts}"
-                                 var="discount"
-                                 itemLabel="#{discount.code} (#{discount.rate} %)" 
-                                 itemValue="#{discount}"/>
+                    id="discount" value="#{customerDetailsBean.customer.discount}" 
+                    title="Discount" required="true" requiredMessage="The Discount field is required." converter="discountConverter">
+                    <f:selectItems value="#{customerDetailsBean.discounts}"
+                                   var="discount"
+                                   itemLabel="#{discount.code} (#{discount.rate} %)" 
+                                   itemValue="#{discount}"/>
                 </h:selectOneMenu>
-                
+
                 <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsBean.update}"/>
             </h:panelGrid>
-           
+
         </h:form>
         <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
         <h:messages/> 
-   </h:body>
+    </h:body>
 </html>

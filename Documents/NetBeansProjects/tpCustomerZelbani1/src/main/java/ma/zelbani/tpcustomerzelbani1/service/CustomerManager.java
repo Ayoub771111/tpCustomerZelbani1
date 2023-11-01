@@ -12,29 +12,32 @@ import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import java.util.List;
 
-
+/**
+ *
+ * Gèrer la persistance des Customers
+ */
 @RequestScoped
 public class CustomerManager {
-    
+
     @PersistenceContext(unitName = "customerPU")
     private EntityManager em;
-    
-    public List<Customer> getAllCustomers() {  
+
+    public List<Customer> getAllCustomers() {
         Query query = em.createNamedQuery("Customer.findAll");
-       return query.getResultList(); 
-    }  
+        return query.getResultList();
+    }
 
     @Transactional
     public Customer update(Customer customer) {
-      return null;  
-    }   
-    
-    @Transactional
-     public void persist(Customer customer) {
-       em.persist(customer);
+        return em.merge(customer);
     }
-    
-    public Customer findById(int idCustomer) {  
-        return em.find(Customer.class, idCustomer);  
+
+    @Transactional
+    public void persist(Customer customer) {
+        em.persist(customer);
+    }
+
+    public Customer findById(int idCustomer) {
+        return em.find(Customer.class, idCustomer);
     }
 }
